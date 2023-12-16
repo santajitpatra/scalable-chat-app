@@ -12,6 +12,7 @@ const socketService = new SocketService();
   httpServer.listen(PORT, () =>
     console.log(`HTTP Server started at POTR :${PORT}`)
   )
+  socketService.initListeners()
 }
 
 init()
