@@ -5,7 +5,7 @@ import classes from "./page.module.css";
 import { useSocket } from "../context/SocketProvider";
 
 const Page = () => {
-  const { sendMessage } = useSocket();
+  const { sendMessage, messages } = useSocket();
   const [message, setMessage] = useState("");
 
   return (
@@ -26,6 +26,11 @@ const Page = () => {
         >
           Send
         </button>
+      </div>
+      <div>
+        {messages.map((e) => (
+          <li>{e}</li>
+        ))}
       </div>
     </div>
   );
