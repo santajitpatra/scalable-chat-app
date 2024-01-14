@@ -1,5 +1,4 @@
 import { Server } from "socket.io";
-// import * as Redis from "ioredis";
 import Redis from "ioredis";
 
 
@@ -40,17 +39,16 @@ class SocketService {
 
       socket.on("event:message", async ({ message }: { message: string }) => {
         console.log("New Message Rec.", message);
-
         // publish this message to redis
         await pub.publish("MESSAGES", JSON.stringify({ message }));
       });
     });
 
-    // sub.on("message", (channel, message) => {
-    //   if (channel === "MESSAGES") {
-    //     io.emit("message", message);
-    //   }
-    // });
+    sub.on("message", (channel, message) => {
+      if (channel === "MESSAGES") {
+        io.emit("message", message);
+      }
+    });
   }
 
   get io() {

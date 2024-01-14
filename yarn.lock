@@ -433,6 +433,42 @@
     picocolors "^1.0.0"
     tslib "^2.6.0"
 
+"@prisma/debug@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-5.8.0.tgz#e49b9d8fd4ef79d177ac4b9f5242e857e8d5a044"
+  integrity sha512-ZqPpkvbovu/kQJ1bvy57NO4dw97fpQGcbQSCtsqlwSE1UNKJP75R3BKxdznk8ZPMY+GJdMRetWNv4oAvSbWn8Q==
+
+"@prisma/engines-version@5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848":
+  version "5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848.tgz#072d9fb98d9454aeb3549ae8c922446313312145"
+  integrity sha512-cXcoVweYbnv8xRfkWq9oj8BECOdzHUazrSpYCa0ehp5TNz4l5Spa8jbq/VROCTzj3ZncH5D9Q2TmySYTOUeKlw==
+
+"@prisma/engines@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-5.8.0.tgz#610560705a8753089ceb93cee8102679ba7eed51"
+  integrity sha512-Qhqm9WWLujNEC13AuZlUO14SQ15tNLe5puaz+tOk7UqINqJ3PtqMmuSuzomiw2diGVqZ+HYiSQzlR3+pPucVHA==
+  dependencies:
+    "@prisma/debug" "5.8.0"
+    "@prisma/engines-version" "5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848"
+    "@prisma/fetch-engine" "5.8.0"
+    "@prisma/get-platform" "5.8.0"
+
+"@prisma/fetch-engine@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@prisma/fetch-engine/-/fetch-engine-5.8.0.tgz#ebba3f0fdf6b9c757502f5dd34fcfa80690e4e7b"
+  integrity sha512-1CAuE+JoYsPNggMEn6qk0zos06Uc9bYZBJ0VBPHD6R7REL05614koAbOCmn52IaYz3nobb7f25hqW6AY7rLkIw==
+  dependencies:
+    "@prisma/debug" "5.8.0"
+    "@prisma/engines-version" "5.8.0-37.0a83d8541752d7582de2ebc1ece46519ce72a848"
+    "@prisma/get-platform" "5.8.0"
+
+"@prisma/get-platform@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@prisma/get-platform/-/get-platform-5.8.0.tgz#a1057322f0cb5dd0d2f59b4120659621e5e24526"
+  integrity sha512-Nk3rhTFZ1LYkFZJnpSvQcLPCaBWgJQfteHII6UEENOOkYlmP0k3FuswND54tzzEr4qs39wOdV9pbXKX9U2lv7A==
+  dependencies:
+    "@prisma/debug" "5.8.0"
+
 "@rushstack/eslint-patch@^1.3.3":
   version "1.6.1"
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.6.1.tgz"
@@ -550,6 +586,13 @@
   dependencies:
     "@types/through" "*"
     rxjs "^6.4.0"
+
+"@types/ioredis@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-5.0.0.tgz#c1ea7e2f3e2c5a942a27cfee6f62ddcfb23fb3e7"
+  integrity sha512-zJbJ3FVE17CNl5KXzdeSPtdltc4tMT3TzC6fxQS0sQngkbFZ6h+0uTafsRqu+eSLIugf6Yb0Ea0SUuRr42Nk9g==
+  dependencies:
+    ioredis "*"
 
 "@types/json-schema@*", "@types/json-schema@^7.0.12", "@types/json-schema@^7.0.9":
   version "7.0.15"
@@ -2530,7 +2573,7 @@ internal-slot@^1.0.5:
     hasown "^2.0.0"
     side-channel "^1.0.4"
 
-ioredis@^5.3.2:
+ioredis@*, ioredis@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-5.3.2.tgz#9139f596f62fc9c72d873353ac5395bcf05709f7"
   integrity sha512-1DKMMzlIHM02eBBVOFQ1+AolGjs6+xEcM4PDL7NqOS6szq7H9jSaEkIUH6/a5Hl241LzW6JLSiAbNvTQjUupUA==
@@ -3575,6 +3618,13 @@ prettier@^3.1.0:
   resolved "https://registry.npmjs.org/prettier/-/prettier-3.1.1.tgz"
   integrity sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==
 
+prisma@^5.8.0:
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-5.8.0.tgz#4efef66c1e8aee98bbc1d41b32bf629f5f7275b2"
+  integrity sha512-hDKoEqPt2qEUTH5yGO3l27CBnPtwvte0CGMKrpCr9+/A919JghfqJ3qgCGgMbOwdkXUOzdho0RH9tyUF3UhpMw==
+  dependencies:
+    "@prisma/engines" "5.8.0"
+
 prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
@@ -4305,6 +4355,25 @@ ts-api-utils@^1.0.1:
 ts-node@^10.9.1:
   version "10.9.2"
   resolved "https://registry.npmjs.org/ts-node/-/ts-node-10.9.2.tgz"
+  integrity sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==
+  dependencies:
+    "@cspotcode/source-map-support" "^0.8.0"
+    "@tsconfig/node10" "^1.0.7"
+    "@tsconfig/node12" "^1.0.7"
+    "@tsconfig/node14" "^1.0.0"
+    "@tsconfig/node16" "^1.0.2"
+    acorn "^8.4.1"
+    acorn-walk "^8.1.1"
+    arg "^4.1.0"
+    create-require "^1.1.0"
+    diff "^4.0.1"
+    make-error "^1.1.1"
+    v8-compile-cache-lib "^3.0.1"
+    yn "3.1.1"
+
+ts-node@^10.9.2:
+  version "10.9.2"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.9.2.tgz#70f021c9e185bccdca820e26dc413805c101c71f"
   integrity sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==
   dependencies:
     "@cspotcode/source-map-support" "^0.8.0"
