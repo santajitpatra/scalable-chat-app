@@ -1,39 +1,39 @@
 import { Server } from "socket.io";
 import Redis from "ioredis";
 
-
 const pub = new Redis({
-  host: "redis-30fc818e-anawalls-c6c0.a.aivencloud.com",
+  host: "redis-2588ee30-anawalls-c6c0.a.aivencloud.com",
   port: 14515,
   username: "default",
-  password: "AVNS_SoMFbuoeIRJGSx81JQv",
+  password: "AVNS_E370XkER7xzm3XYpKa8",
 });
 
 const sub = new Redis({
-  host: "redis-30fc818e-anawalls-c6c0.a.aivencloud.com",
+  host: "redis-2588ee30-anawalls-c6c0.a.aivencloud.com",
   port: 14515,
   username: "default",
-  password: "AVNS_SoMFbuoeIRJGSx81JQv",
+  password: "AVNS_E370XkER7xzm3XYpKa8",
 });
 
 class SocketService {
   private _io: Server;
 
   constructor() {
-    console.log("Init Socket Service");
+    console.log("Init Socket Service...");
     this._io = new Server({
       cors: {
         allowedHeaders: ["*"],
         origin: "*",
       },
     });
-    pub.subscribe("MESSAGES");
+    sub.subscribe("MESSAGES");
   }
 
   public initListeners() {
     const io = this.io;
     console.log("Init Socket Listeners...");
 
+    // this is the socket.io event listener
     io.on("connect", (socket) => {
       console.log(`New Socket Connected`, socket.id);
 
@@ -44,8 +44,10 @@ class SocketService {
       });
     });
 
-    sub.on("message", (channel, message) => {
+    // this is the redis event listener
+    sub.on("message", async (channel, message) => {
       if (channel === "MESSAGES") {
+        console.log("new message from redis", message);
         io.emit("message", message);
       }
     });
