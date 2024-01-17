@@ -18,6 +18,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@prisma/client": "5.8.0",
     "@types/ioredis": "^5.0.0",
     "ioredis": "^5.3.2",
     "socket.io": "^4.7.2"
