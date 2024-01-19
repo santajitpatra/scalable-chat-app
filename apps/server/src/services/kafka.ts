@@ -1,16 +1,16 @@
 import { Kafka, Producer } from "kafkajs";
-// import fs from "fs";
-// import path from "path";
-
+import prismaClient from "./prisma";
+import fs from "fs";
+import path from "path";
 
 const kafka = new Kafka({
-  brokers: ["rw.kfc05ufvfndt261c9fdc.at.double.cloud:9091"],
-  //   ssl: {
-  //     ca: [fs.readFileSync(path.resolve("./ca.pem"), "utf-8")],
-  //   },
+  brokers: ["kafka-1ae1819-anawalls-c6c0.a.aivencloud.com:14528"],
+  ssl: {
+    ca: [fs.readFileSync(path.resolve("./ca.pem"), "utf-8")],
+  },
   sasl: {
-    username: "admin",
-    password: "7K0uQwXRcJxgYp0g",
+    username: "avnadmin",
+    password: "AVNS_Lis9Cbt-J4QgeV0FOn8",
     mechanism: "plain",
   },
 });
@@ -34,6 +34,32 @@ export async function produceMessage(message: string) {
   });
   return true;
 }
+export async function startMessageConsumer() {
+  console.log("Consumer is running..");
+  const consumer = kafka.consumer({ groupId: "default" });
+  await consumer.connect();
+  await consumer.subscribe({ topic: "MESSAGES", fromBeginning: true });
 
+  await consumer.run({
+    autoCommit: true,
+    eachMessage: async ({ message, pause }) => {
+      if (!message.value) return;
+      console.log(`New Message Recv..`);
+      try {
+        await prismaClient.message.create({
+          data: {
+            text: message.value?.toString(),
+          },
+        });
+      } catch (err) {
+        console.log("Something is wrong");
+        pause();
+        setTimeout(() => {
+          consumer.resume([{ topic: "MESSAGES" }]);
+        }, 60 * 1000);
+      }
+    },
+  });
+}
 
 export default kafka;
